@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="slides">
+            <div class="slide">
+                    <img src="images3/png-clipart-internet-meme-god-rage-comic-know-your-meme-why-white-face.png">
+            </div> 
+            <div class="slide">
+                    <img src="images3/png-clipart-rage-comic-internet-meme-feeling-drawing-meme-face-logo.png">
+            </div> 
+            <div class="slide">
+                    <img src="images3/png-transparent-tom-jerry-jerry-youtube-jerry-mouse-internet-meme-tom-and-jerry-tom-and-jerry-mammal-cat-like-mammal-heroes.png">
+            </div> 
+            <div class="slide">
+                    <img src="images3/png-transparent-internet-troll-internet-meme-trollface-laughing-face-meme-sticker-miscellaneous-face-food-thumbnail.png">
+            </div> 
+            <div class="slide">   
+                    <img src="/meme/meme the rock.png">
+            </div>
+        </div>
+        <div class="slide-controls">
+            <button id="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        const slidecontainer = document.querySelector('.container');
+        const slide = document.querySelector('.slides');
+        const nextbtn = document.getElementById('.next-btn');
+        const prevbtn = document.getElementById('.prev-btn');
+        const interval = 3000;
+
+        let slides = document.querySelectorAll('.slide');
+        let index = 1;
+
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[slides.length - 1].cloneNode(true);
+
+        firstClone.id = 'firse-clone'
+        lastClone.id = 'last-clone'
+
+        slide.append(firstClone);
+        slide.prepend(lastClone);
+
+        const slidewidth = slide[index]. clienwidth;
+
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;
+
+        const startSlide = ()=> {
+            setInterval(() => {
+                index++;
+                slide.style.transform = `translateX(${-slideWidth * index}px)`;
+                slide.style.transition = '.7s';
+            }, interval)
+        }
+
+        startSlide()
+    </script>
+</body>
+</html>
